@@ -1,0 +1,49 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url  	    = env("DATABASE_URL")
+}
+
+
+// resume table
+
+model Resume {
+  id String @id @default(cuid())
+  userId String  
+
+  title String?           // optional title which shows in pur app
+  description String?       // optional description - that shows in our app
+
+  photoUrl String?        // optional
+  colorHex String @default("#000000")     // by default use black.
+  borderStyle String @default("squircle")
+
+  // user values
+  summary String? // summary that the user dispalys in his resume.
+  firstName String? 
+  lastName String?
+  jobTitle String?
+  city String?
+  country String?
+  phone String? 
+  email String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@map("resumes")    // rename the table in the db
+  
+
+  
+
+
+}
