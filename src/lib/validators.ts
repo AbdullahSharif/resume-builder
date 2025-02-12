@@ -35,3 +35,13 @@ export const personalInfoSchema = z.object({
 });
 
 export type PersonalInfoType = z.infer<typeof personalInfoSchema>;
+
+export const resumeSchema = z.object({
+  ...generalInfoSchema.shape,
+  ...personalInfoSchema.shape,
+});
+
+export type ResumeValues = Omit<z.infer<typeof resumeSchema>, "photo"> & {
+  id?: string;
+  photo?: File | string | null; // after storing the image, it will be a string url.
+};

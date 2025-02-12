@@ -7,35 +7,40 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { EditorFormProps } from "@/lib/types";
 import { personalInfoSchema, PersonalInfoType } from "@/lib/validators";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
-export default function PersonalInfoForm() {
+export default function PersonalInfoForm({
+  resumeData,
+  setResumeData,
+}: EditorFormProps) {
   const form = useForm<PersonalInfoType>({
     resolver: zodResolver(personalInfoSchema),
     defaultValues: {
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      city: "",
-      country: "",
-      jobTitle: "",
+      firstName: resumeData.firstName || "",
+      lastName: resumeData.lastName || "",
+      email: resumeData.email || "",
+      phone: resumeData.phone || "",
+      city: resumeData.city || "",
+      country: resumeData.country || "",
+      jobTitle: resumeData.jobTitle || "",
     },
   });
 
   useEffect(() => {
-    const { unsubscribe } = form.watch(async () => {
+    const { unsubscribe } = form.watch(async (values) => {
       // .watch looks for changes in the form's state.
       const isValid = await form.trigger(); // The form validation works when the form is submitted. We need to trigger the validation ourself because in reality, our form is never getting submitted.
       if (!isValid) return;
-      // TODO: update resume data in the parent component.
+
+      setResumeData({ ...resumeData, ...values });
     });
 
     return unsubscribe; // for performance reasons and best practices, we need to have only one form watcher working.
-  }, [form]);
+  }, [form, resumeData, setResumeData]);
 
   return (
     <div className="mx-auto max-w-xl space-y-6">
@@ -157,7 +162,7 @@ export default function PersonalInfoForm() {
 
           <FormField
             control={form.control}
-            name="email"
+            name="phone"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Phone #</FormLabel>
