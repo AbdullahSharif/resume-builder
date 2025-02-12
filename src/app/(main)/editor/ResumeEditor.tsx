@@ -23,6 +23,7 @@ export default function ResumeEditor() {
     id: "",
     jobTitle: "",
     photo: "",
+    workExperiences: [],
   });
 
   const searchParams = useSearchParams(); // get the search params.
