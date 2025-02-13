@@ -24,6 +24,7 @@ export default function ResumeEditor() {
     jobTitle: "",
     photo: "",
     workExperiences: [],
+    educations: [],
   });
 
   const searchParams = useSearchParams(); // get the search params.
@@ -68,7 +69,7 @@ export default function ResumeEditor() {
             )}
           </div>
           <div className="grow md:border-r" />
-          <div className="hidden w-1/2 md:flex">
+          <div className="hidden w-1/2 overflow-y-auto md:flex">
             <pre>{JSON.stringify(resumeData, null, 2)}</pre>
           </div>
         </div>
