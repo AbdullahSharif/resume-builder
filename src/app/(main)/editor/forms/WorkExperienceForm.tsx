@@ -48,7 +48,7 @@ export default function WorkExperienceForm({
     <div className="mx-auto max-w-xl space-y-5">
       <div className="space-y-2 text-center">
         <h2 className="text-2xl font-semibold">Work Experience</h2>
-        <p className="text-muted-foreground">
+        <p className="text-sm text-muted-foreground">
           Add as many work experiences as you like
         </p>
       </div>
@@ -186,12 +186,9 @@ function WorkExperienceItem({ form, index, remove }: WorkExperienceItemProps) {
         )}
       />
 
-      <Button
-        type="button"
-        onClick={() => remove(index)}
-        variant="destructive"
-
-      >Remove</Button>
+      <Button type="button" onClick={() => remove(index)} variant="destructive">
+        Remove
+      </Button>
     </div>
   );
 }

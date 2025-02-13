@@ -48,7 +48,9 @@ export default function EducationForm({
     <div className="mx-auto max-w-xl space-y-5">
       <div className="space-y-2 text-center">
         <h2 className="text-2xl font-semibold">Education</h2>
-        <p className="text-muted-foreground">Add your education details</p>
+        <p className="text-sm text-muted-foreground">
+          Add your education details
+        </p>
       </div>
 
       <Form {...form}>

@@ -25,6 +25,7 @@ export default function ResumeEditor() {
     photo: "",
     workExperiences: [],
     educations: [],
+    summary: "",
   });
 
   const searchParams = useSearchParams(); // get the search params.
