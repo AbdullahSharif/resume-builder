@@ -40,6 +40,8 @@ model Resume {
   workExperiences WorkExperience[]
   educations Education[]
 
+  skils String[]
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   
