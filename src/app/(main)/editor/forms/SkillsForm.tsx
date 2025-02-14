@@ -68,7 +68,7 @@ export default function SkillsForm({
                   />
                 </FormControl>
                 <FormDescription>
-                  Separate your skills with commas (,)
+                  Separate your skills with a comma (,)
                 </FormDescription>
                 <FormMessage />
               </FormItem>
