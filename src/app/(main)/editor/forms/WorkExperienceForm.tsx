@@ -13,7 +13,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { EditorFormProps } from "@/lib/types";
 import { workExperienceSchema, WorkExperienceValues } from "@/lib/validators";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { GripHorizontal } from "lucide-react";
+import { GripHorizontal, PlusSquare } from "lucide-react";
 import { useEffect } from "react";
 import { useFieldArray, useForm, UseFormReturn } from "react-hook-form";
 
@@ -78,6 +78,7 @@ export default function WorkExperienceForm({
               }
             >
               {" "}
+              <PlusSquare size={5} />
               Add Work Experience
             </Button>
           </div>

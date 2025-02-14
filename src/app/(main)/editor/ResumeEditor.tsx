@@ -9,6 +9,7 @@ import Breadcrumbs from "./Breadcrumbs";
 import Footer from "./Footer";
 import { useState } from "react";
 import { ResumeValues } from "@/lib/validators";
+import ResumePreviewSection from "./ResumePreviewSection";
 
 export default function ResumeEditor() {
   const [resumeData, setResumeData] = useState<ResumeValues>({
@@ -48,7 +49,7 @@ export default function ResumeEditor() {
 
   return (
     <div className="flex grow flex-col">
-      <header className="space-y-1.5 border-b px-3 py-5 text-center">
+      <header className="space-y-1.5 border-b px-3 py-3 text-center">
         <h1 className="text-2xl font-bold">Design Your Resume</h1>
         <p className="text-sm text-muted-foreground">
           Follow the steps to create an ATS tested resume. Your progress will be
@@ -70,9 +71,11 @@ export default function ResumeEditor() {
             )}
           </div>
           <div className="grow md:border-r" />
-          <div className="hidden w-1/2 overflow-y-auto md:flex">
-            <pre>{JSON.stringify(resumeData, null, 2)}</pre>
-          </div>
+
+          <ResumePreviewSection
+            resumeData={resumeData}
+            setResumeData={setResumeData}
+          />
         </div>
       </main>
       <Footer currentStep={currentStep} setCurrentStep={setStep} />

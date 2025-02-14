@@ -16,7 +16,7 @@ export default function Footer({ currentStep, setCurrentStep }: FooterProps) {
     (_, index) => steps[index - 1]?.key === currentStep,
   )?.key;
   return (
-    <footer className="w-full border-t px-3 py-6">
+    <footer className="w-full border-t px-3 py-3">
       <div className="mx-auto flex max-w-7xl flex-wrap justify-between gap-3">
         <div className="flex items-center gap-3">
           {/* buttons for going to the previous and next steps. */}

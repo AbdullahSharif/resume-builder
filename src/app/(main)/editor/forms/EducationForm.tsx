@@ -15,7 +15,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-import { GripHorizontal } from "lucide-react";
+import { GripHorizontal, PlusSquare } from "lucide-react";
 
 export default function EducationForm({
   resumeData,
@@ -76,6 +76,7 @@ export default function EducationForm({
                 })
               }
             >
+              <PlusSquare size={5} />
               Add Education
             </Button>
           </div>

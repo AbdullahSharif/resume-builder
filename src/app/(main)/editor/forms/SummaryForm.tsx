@@ -52,7 +52,11 @@ export default function SummaryForm({
               <FormItem>
                 <FormLabel>Professional Summary</FormLabel>
                 <FormControl>
-                  <Textarea {...field} autoFocus />
+                  <Textarea
+                    {...field}
+                    autoFocus
+                    placeholder="A brief, engaging description about yourself."
+                  />
                 </FormControl>
               </FormItem>
             )}
