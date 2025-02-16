@@ -52,8 +52,17 @@ interface ResumeInfoProps {
 }
 
 function PersonalInfo({ resumeData }: ResumeInfoProps) {
-  const { photo, firstName, lastName, jobTitle, city, country, phone, email } =
-    resumeData;
+  const {
+    photo,
+    firstName,
+    lastName,
+    jobTitle,
+    city,
+    country,
+    phone,
+    email,
+    colorHex,
+  } = resumeData;
 
   const [photoSrc, setPhotoSrc] = useState(photo instanceof File ? "" : photo);
 
@@ -79,7 +88,7 @@ function PersonalInfo({ resumeData }: ResumeInfoProps) {
       )}
       <div className="space-y-2.5">
         <div className="space-y-1">
-          <p className="text-3xl font-bold">
+          <p className="text-3xl font-bold" style={{ color: colorHex }}>
             {firstName} {lastName}
           </p>
           <p className="font-medium">{jobTitle}</p>
@@ -99,15 +108,17 @@ function PersonalInfo({ resumeData }: ResumeInfoProps) {
 }
 
 function SummarySection({ resumeData }: ResumeInfoProps) {
-  const { summary } = resumeData;
+  const { summary, colorHex } = resumeData;
 
   if (!summary) return;
 
   return (
     <>
-      <hr className="border-2" />
+      <hr className="border-2" style={{ borderColor: resumeData.colorHex }} />
       <div className="break-inside-avoid space-y-3">
-        <p className="text-lg font-semibold">Professional Summary</p>
+        <p className="text-lg font-semibold" style={{ color: colorHex }}>
+          Professional Summary
+        </p>
         <div className="whitespace-pre-line text-sm">{summary}</div>
       </div>
     </>
@@ -115,7 +126,7 @@ function SummarySection({ resumeData }: ResumeInfoProps) {
 }
 
 function WorkExperiencesSection({ resumeData }: ResumeInfoProps) {
-  const { workExperiences } = resumeData;
+  const { workExperiences, colorHex } = resumeData;
 
   const ValidWorkExperiences = workExperiences?.filter(
     (exp) => Object.values(exp).filter(Boolean).length > 0,
@@ -125,9 +136,11 @@ function WorkExperiencesSection({ resumeData }: ResumeInfoProps) {
 
   return (
     <>
-      <hr className="border-2" />
+      <hr className="border-2" style={{ borderColor: resumeData.colorHex }} />
       <div className="space-y-3">
-        <p className="text-lg font-semibold">Work Experience</p>
+        <p className="text-lg font-semibold" style={{ color: colorHex }}>
+          Work Experience
+        </p>
         {ValidWorkExperiences.map((exp, index) => (
           <div key={index} className="break-inside-avoid space-y-1">
             <div className="flex items-center justify-between text-sm font-semibold">
@@ -151,7 +164,7 @@ function WorkExperiencesSection({ resumeData }: ResumeInfoProps) {
 }
 
 function EducationSection({ resumeData }: ResumeInfoProps) {
-  const { educations } = resumeData;
+  const { educations, colorHex } = resumeData;
 
   const validEducations = educations?.filter(
     (edu) => Object.values(edu).filter(Boolean).length > 0,
@@ -161,9 +174,11 @@ function EducationSection({ resumeData }: ResumeInfoProps) {
 
   return (
     <>
-      <hr className="border-2" />
+      <hr className="border-2" style={{ borderColor: resumeData.colorHex }} />
       <div className="space-y-3">
-        <p className="text-lg font-semibold">Education</p>
+        <p className="text-lg font-semibold" style={{ color: colorHex }}>
+          Education
+        </p>
         {validEducations.map((edu, index) => (
           <div key={index} className="break-inside-avoid space-y-1">
             <div className="flex items-center justify-between text-sm font-semibold">
@@ -171,7 +186,7 @@ function EducationSection({ resumeData }: ResumeInfoProps) {
               {edu?.startDate &&
                 `${formatDate(edu.startDate, "MM/yyyy")} ${edu.endDate ? ` - ${formatDate(edu.endDate, "MM/yyyy")}` : ""}`}
             </div>
-            <p className="text-xs font-semibold">{edu?.school}</p>
+            <p className="text-xs">{edu?.school}</p>
           </div>
         ))}
       </div>
@@ -180,20 +195,25 @@ function EducationSection({ resumeData }: ResumeInfoProps) {
 }
 
 function SkillsSection({ resumeData }: ResumeInfoProps) {
-  const { skills } = resumeData;
+  const { skills, colorHex } = resumeData;
 
   if (!skills?.length) return;
 
   return (
     <>
-      <hr className="border-2" />
+      <hr className="border-2" style={{ borderColor: resumeData.colorHex }} />
       <div className="break-inside-avoid space-y-3">
-        <p className="text-lg font-semibold">Skills</p>
+        <p className="text-lg font-semibold" style={{ color: colorHex }}>
+          Skills
+        </p>
         <div className="flex break-inside-avoid flex-wrap gap-2">
           {skills.map((skill, index) => (
             <Badge
               className="rounded-md bg-black p-2 text-white hover:bg-black"
               key={index}
+              style={{
+                backgroundColor: colorHex,
+              }}
             >
               {skill}
             </Badge>
