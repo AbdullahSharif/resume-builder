@@ -45,6 +45,13 @@ export default function Navbar() {
                 href="/billing"
               />
             </UserButton.MenuItems>
+            <UserButton.MenuItems>
+              <UserButton.Link
+                label="Billing"
+                labelIcon={<CreditCard />}
+                href="/billing"
+              />
+            </UserButton.MenuItems>
           </UserButton>
         </div>
       </div>
