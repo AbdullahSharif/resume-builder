@@ -19,6 +19,7 @@ export default function ColorPicker({ color, onChange }: ColorPcikerProps) {
   return (
     <Popover open={showPopOver} onOpenChange={setShowPopOver}>
       <PopoverTrigger asChild>
+        {/* adding a test comment */}
         <Button
           variant={"outline"}
           size={"icon"}
