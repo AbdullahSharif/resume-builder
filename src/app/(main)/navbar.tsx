@@ -58,3 +58,5 @@ export default function Navbar() {
     </header>
   );
 }
+
+// adding test to comments to test the deployment on AWS.
