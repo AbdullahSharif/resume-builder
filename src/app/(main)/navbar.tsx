@@ -23,6 +23,9 @@ export default function Navbar() {
           <span className="text-xl font-bold tracking-tight">
             Resume Builder
           </span>
+          <span className="text-xl font-bold tracking-tight">
+            Resume Builder
+          </span>
         </Link>
         <div className="flex items-center gap-2">
           <ToggleTheme />
