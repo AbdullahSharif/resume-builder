@@ -33,6 +33,12 @@ export default function Footer({ currentStep, setCurrentStep }: FooterProps) {
           >
             Next Step
           </Button>
+
+          <Button
+            onClick={nextStep ? () => setCurrentStep(nextStep) : undefined}
+          >
+            Next Step
+          </Button>
         </div>
         <div className="flex items-center gap-3">
           <Button variant={"secondary"} asChild>
