@@ -28,23 +28,7 @@ export default function ColorPicker({ color, onChange }: ColorPcikerProps) {
           <PaletteIcon className="size-5" />
         </Button>
 
-        <Button
-          variant={"outline"}
-          size={"icon"}
-          title="Change resume color"
-          onClick={() => setShowPopOver(true)}
-        >
-          <PaletteIcon className="size-5" />
-        </Button>
-
-        <Button
-          variant={"outline"}
-          size={"icon"}
-          title="Change resume color"
-          onClick={() => setShowPopOver(true)}
-        >
-          <PaletteIcon className="size-5" />
-        </Button>
+        
 
 
       </PopoverTrigger>
