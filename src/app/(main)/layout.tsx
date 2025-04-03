@@ -7,3 +7,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     </div>
   );
 }
+
+
+//  adding a comment to layout file just to test the github app.
